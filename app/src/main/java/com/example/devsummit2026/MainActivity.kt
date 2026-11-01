@@ -62,7 +62,7 @@ private data class ChatMessage(val text: String, val fromUser: Boolean)
 private fun FirebaseAiChatScreen() {
     val chat = remember {
         Firebase.ai(backend = GenerativeBackend.googleAI())
-            .generativeModel("gemini-3.8-flash")
+            .generativeModel("gemini-3.5-flash-lite")
             .startChat()
     }
     val messages = remember { mutableStateListOf<ChatMessage>() }
