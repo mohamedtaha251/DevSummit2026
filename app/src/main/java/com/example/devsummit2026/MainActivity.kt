@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.devsummit2026.firebase.FirebaseAppCheckManager
-import com.example.devsummit2026.ui.home.HomeScreen
+import com.example.devsummit2026.navigation.AppNavigation
 import com.example.devsummit2026.ui.theme.DevSummit2026Theme
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DevSummit2026Theme {
-                HomeScreen()
+                AppNavigation()
             }
         }
     }
