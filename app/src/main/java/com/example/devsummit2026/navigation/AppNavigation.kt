@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.devsummit2026.ui.appfunctions.AppFunctionsScreen
 import com.example.devsummit2026.ui.features.FeatureListScreen
 import com.example.devsummit2026.ui.home.HomeScreen
 
@@ -29,6 +30,14 @@ fun AppNavigation(
 
         composable(Screen.Chat.route) {
             HomeScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.AppFunctions.route) {
+            AppFunctionsScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

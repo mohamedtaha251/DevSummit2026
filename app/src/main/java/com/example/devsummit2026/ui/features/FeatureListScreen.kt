@@ -47,8 +47,13 @@ val defaultFeatures = listOf(
         title = "Firebase AI logic",
         description = "Explore AI models and logic labs powered by Firebase and Gemini",
         route = Screen.Chat.route
+    ),
+    FeatureItem(
+        id = "app_functions",
+        title = "App Functions (Quick Notes)",
+        description = "Expose on-device functions to AI agents via androidx.appfunctions",
+        route = Screen.AppFunctions.route
     )
-    // Add more features here as needed
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
