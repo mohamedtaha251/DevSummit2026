@@ -41,6 +41,9 @@ android {
         compose = true
         buildConfig = true
     }
+    androidResources {
+        noCompress += "tflite"
+    }
 }
 
 dependencies {
@@ -61,6 +64,8 @@ dependencies {
     implementation(libs.androidx.appfunctions)
     ksp(libs.androidx.appfunctions.compiler)
     implementation(libs.mlkit.text.recognition)
+    implementation(libs.play.services.tflite.java)
+    implementation(libs.play.services.tflite.gpu)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

@@ -5,4 +5,6 @@ sealed class Screen(val route: String) {
     data object Chat : Screen("chat")
     data object AppFunctions : Screen("app_functions")
     data object TextRecognition : Screen("text_recognition")
+    data object ImageClassificationTypes : Screen("image_classification_types")
+    data object ImageClassification : Screen("image_classification")
 }

@@ -13,6 +13,7 @@ navigationCompose = "2.8.8"
 ksp = "2.2.10-2.0.2"
 appfunctions = "1.0.0-beta01"
 playServicesMlkitTextRecognition = "19.0.1"
+playServicesTflite = "16.5.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,6 +35,8 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 androidx-appfunctions = { group = "androidx.appfunctions", name = "appfunctions", version.ref = "appfunctions" }
 androidx-appfunctions-compiler = { group = "androidx.appfunctions", name = "appfunctions-compiler", version.ref = "appfunctions" }
 mlkit-text-recognition = { group = "com.google.android.gms", name = "play-services-mlkit-text-recognition", version.ref = "playServicesMlkitTextRecognition" }
+play-services-tflite-java = { group = "com.google.android.gms", name = "play-services-tflite-java", version.ref = "playServicesTflite" }
+play-services-tflite-gpu = { group = "com.google.android.gms", name = "play-services-tflite-gpu", version.ref = "playServicesTflite" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

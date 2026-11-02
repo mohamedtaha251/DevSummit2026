@@ -59,6 +59,12 @@ val defaultFeatures = listOf(
         title = "ML Kit: Text Recognition",
         description = "Extract and recognize text from images on-device with Google ML Kit",
         route = Screen.TextRecognition.route
+    ),
+    FeatureItem(
+        id = "image_classifications",
+        title = "Image Classifications",
+        description = "Explore different types and models for on-device image classification",
+        route = Screen.ImageClassificationTypes.route
     )
 )
 

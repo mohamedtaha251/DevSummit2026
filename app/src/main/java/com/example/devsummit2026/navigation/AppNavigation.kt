@@ -9,6 +9,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.devsummit2026.ui.appfunctions.AppFunctionsScreen
 import com.example.devsummit2026.ui.features.FeatureListScreen
 import com.example.devsummit2026.ui.home.HomeScreen
+import com.example.devsummit2026.ui.litert.ImageClassificationScreen
+import com.example.devsummit2026.ui.litert.ImageClassificationTypesScreen
 import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
 
 @Composable
@@ -47,6 +49,25 @@ fun AppNavigation(
 
         composable(Screen.TextRecognition.route) {
             TextRecognitionScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.ImageClassificationTypes.route) {
+            ImageClassificationTypesScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                },
+                onTypeClick = { route ->
+                    navController.navigate(route)
+                }
+            )
+        }
+
+        composable(Screen.ImageClassification.route) {
+            ImageClassificationScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }
