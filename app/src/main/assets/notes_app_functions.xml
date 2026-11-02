@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<appfunctions>
+    <appfunction>
+        <id>com.example.devsummit2026.appfunctions.BaseNotesAppFunctionService#createNote</id>
+        <enabledByDefault>true</enabledByDefault>
+        <description>Creates and saves a new note.</description>
+        <parameters>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>8</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>title</name>
+            <description>The title or subject of the note.</description>
+        </parameters>
+        <parameters>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>8</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>content</name>
+            <description>The detailed content or body text of the note.</description>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <dataTypeReference>com.example.devsummit2026.appfunctions.model.Note</dataTypeReference>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>11</type>
+            </valueType>
+            <description>The created [Note] with generated id and timestamp.</description>
+        </response>
+        <functionId>com.example.devsummit2026.appfunctions.BaseNotesAppFunctionService#createNote</functionId>
+    </appfunction>
+    <appfunction>
+        <id>com.example.devsummit2026.appfunctions.BaseNotesAppFunctionService#searchNotes</id>
+        <enabledByDefault>true</enabledByDefault>
+        <description>Searches notes by matching text in title or content.</description>
+        <parameters>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <type>8</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <isRequired>true</isRequired>
+            <name>query</name>
+            <description>The search keyword or phrase to look for.</description>
+        </parameters>
+        <response>
+            <id>unused</id>
+            <valueType>
+                <id>unused</id>
+                <isNullable>false</isNullable>
+                <itemType>
+                    <dataTypeReference>com.example.devsummit2026.appfunctions.model.Note</dataTypeReference>
+                    <id>unused</id>
+                    <isNullable>false</isNullable>
+                    <type>11</type>
+                </itemType>
+                <type>10</type>
+            </valueType>
+            <description>A list of [Note] objects that match the query.</description>
+        </response>
+        <functionId>com.example.devsummit2026.appfunctions.BaseNotesAppFunctionService#searchNotes</functionId>
+    </appfunction>
+    <AppFunctionComponentMetadataDocument>
+        <dataTypes>
+            <dataTypeMetadata>
+                <id>unused</id>
+                <isNullable>true</isNullable>
+                <objectQualifiedName>com.example.devsummit2026.appfunctions.model.Note</objectQualifiedName>
+                <description>Represents a quick note with title and content.</description>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The unique identifier of the note.</description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>id</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The title or subject of the note.</description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>title</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>The main body text of the note.</description>
+                        <type>8</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>content</name>
+                </properties>
+                <properties>
+                    <dataTypeMetadata>
+                        <id>unused</id>
+                        <isNullable>false</isNullable>
+                        <description>Timestamp in milliseconds when the note was created.</description>
+                        <type>6</type>
+                    </dataTypeMetadata>
+                    <id>unused</id>
+                    <name>createdAt</name>
+                </properties>
+                <required>id</required>
+                <required>title</required>
+                <required>content</required>
+                <type>3</type>
+            </dataTypeMetadata>
+            <id>unused</id>
+            <name>com.example.devsummit2026.appfunctions.model.Note</name>
+        </dataTypes>
+        <id>com.example.devsummit2026.appfunctions.BaseNotesAppFunctionService</id>
+    </AppFunctionComponentMetadataDocument>
+</appfunctions>
