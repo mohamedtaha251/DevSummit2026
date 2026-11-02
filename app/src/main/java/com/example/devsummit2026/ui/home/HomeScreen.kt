@@ -61,7 +61,7 @@ fun HomeScreen(
             TopAppBar(
                 title = {
                     Text(
-                        text = "Firebase AI Chat",
+                        text = "Firebase logic lab",
                         fontWeight = FontWeight.Bold
                     )
                 },

@@ -46,7 +46,7 @@ val defaultFeatures = listOf(
         id = "firebase_ai_logic",
         title = "Firebase AI logic",
         description = "Explore AI models and logic labs powered by Firebase and Gemini",
-        route = Screen.FirebaseLogicLab.route
+        route = Screen.Chat.route
     )
     // Add more features here as needed
 )
