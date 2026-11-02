@@ -11,6 +11,7 @@ import com.example.devsummit2026.ui.features.FeatureListScreen
 import com.example.devsummit2026.ui.home.HomeScreen
 import com.example.devsummit2026.ui.litert.ImageClassificationScreen
 import com.example.devsummit2026.ui.litert.ImageClassificationTypesScreen
+import com.example.devsummit2026.ui.litert.MeetBackgroundScreen
 import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
 
 @Composable
@@ -68,6 +69,14 @@ fun AppNavigation(
 
         composable(Screen.ImageClassification.route) {
             ImageClassificationScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.MeetBackgrounds.route) {
+            MeetBackgroundScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

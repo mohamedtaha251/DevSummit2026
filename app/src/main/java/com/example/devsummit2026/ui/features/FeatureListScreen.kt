@@ -65,6 +65,12 @@ val defaultFeatures = listOf(
         title = "Image Classifications",
         description = "Explore different types and models for on-device image classification",
         route = Screen.ImageClassificationTypes.route
+    ),
+    FeatureItem(
+        id = "google_meet_backgrounds",
+        title = "Google Meet Backgrounds (LiteRT)",
+        description = "On-device real-time selfie background blur and virtual replacement with LiteRT",
+        route = Screen.MeetBackgrounds.route
     )
 )
 

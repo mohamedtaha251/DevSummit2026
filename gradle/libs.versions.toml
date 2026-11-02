@@ -14,6 +14,7 @@ ksp = "2.2.10-2.0.2"
 appfunctions = "1.0.0-beta01"
 playServicesMlkitTextRecognition = "19.0.1"
 playServicesTflite = "16.5.0"
+camerax = "1.4.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +38,10 @@ androidx-appfunctions-compiler = { group = "androidx.appfunctions", name = "appf
 mlkit-text-recognition = { group = "com.google.android.gms", name = "play-services-mlkit-text-recognition", version.ref = "playServicesMlkitTextRecognition" }
 play-services-tflite-java = { group = "com.google.android.gms", name = "play-services-tflite-java", version.ref = "playServicesTflite" }
 play-services-tflite-gpu = { group = "com.google.android.gms", name = "play-services-tflite-gpu", version.ref = "playServicesTflite" }
+androidx-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camerax" }
+androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }
+androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }
+androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camerax" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
