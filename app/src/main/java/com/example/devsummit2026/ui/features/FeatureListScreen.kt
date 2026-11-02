@@ -53,6 +53,12 @@ val defaultFeatures = listOf(
         title = "App Functions (Quick Notes)",
         description = "Expose on-device functions to AI agents via androidx.appfunctions",
         route = Screen.AppFunctions.route
+    ),
+    FeatureItem(
+        id = "ml_kit_text_recognition",
+        title = "ML Kit: Text Recognition",
+        description = "Extract and recognize text from images on-device with Google ML Kit",
+        route = Screen.TextRecognition.route
     )
 )
 

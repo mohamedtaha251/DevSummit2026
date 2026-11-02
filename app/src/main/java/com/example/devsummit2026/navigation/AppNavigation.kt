@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.devsummit2026.ui.appfunctions.AppFunctionsScreen
 import com.example.devsummit2026.ui.features.FeatureListScreen
 import com.example.devsummit2026.ui.home.HomeScreen
+import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
 
 @Composable
 fun AppNavigation(
@@ -38,6 +39,14 @@ fun AppNavigation(
 
         composable(Screen.AppFunctions.route) {
             AppFunctionsScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.TextRecognition.route) {
+            TextRecognitionScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }
