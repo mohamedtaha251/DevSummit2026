@@ -14,6 +14,7 @@ import com.example.devsummit2026.ui.litert.LiteRtScreen
 import com.example.devsummit2026.ui.litert.MeetBackgroundScreen
 import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
 import com.example.devsummit2026.ui.qwen.QwenChatScreen
+import com.example.devsummit2026.ui.qwenagent.QwenAgentScreen
 
 @Composable
 fun AppNavigation(
@@ -86,6 +87,14 @@ fun AppNavigation(
 
         composable(Screen.QwenChat.route) {
             QwenChatScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.QwenAgent.route) {
+            QwenAgentScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

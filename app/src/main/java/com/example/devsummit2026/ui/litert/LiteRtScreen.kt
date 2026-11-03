@@ -61,6 +61,12 @@ val defaultLiteRtItems = listOf(
         title = "Qwen 2.5 On-Device Chat",
         description = "On-device conversation with Qwen2.5-0.5B-Instruct powered by MediaPipe GenAI",
         route = Screen.QwenChat.route
+    ),
+    LiteRtItem(
+        id = "qwen_notes_agent",
+        title = "Qwen 2.5 Notes Agent",
+        description = "Autonomous on-device agent with live action stepper controlling Notes",
+        route = Screen.QwenAgent.route
     )
 )
 

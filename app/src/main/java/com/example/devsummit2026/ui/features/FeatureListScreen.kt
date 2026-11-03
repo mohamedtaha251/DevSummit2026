@@ -65,6 +65,12 @@ val defaultFeatures = listOf(
         title = "LiteRT",
         description = "Explore on-device models with LiteRT: Classification, Meet backgrounds, and Qwen chat",
         route = Screen.LiteRt.route
+    ),
+    FeatureItem(
+        id = "qwen_notes_agent",
+        title = "Qwen 2.5 Notes Agent",
+        description = "Autonomous on-device agent with live action stepper controlling Notes",
+        route = Screen.QwenAgent.route
     )
 )
 
