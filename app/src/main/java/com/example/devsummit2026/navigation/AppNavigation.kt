@@ -13,6 +13,7 @@ import com.example.devsummit2026.ui.litert.ImageClassificationScreen
 import com.example.devsummit2026.ui.litert.ImageClassificationTypesScreen
 import com.example.devsummit2026.ui.litert.MeetBackgroundScreen
 import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
+import com.example.devsummit2026.ui.qwen.QwenChatScreen
 
 @Composable
 fun AppNavigation(
@@ -77,6 +78,14 @@ fun AppNavigation(
 
         composable(Screen.MeetBackgrounds.route) {
             MeetBackgroundScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.QwenChat.route) {
+            QwenChatScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

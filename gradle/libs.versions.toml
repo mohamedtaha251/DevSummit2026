@@ -15,6 +15,7 @@ appfunctions = "1.0.0-beta01"
 playServicesMlkitTextRecognition = "19.0.1"
 playServicesTflite = "16.5.0"
 camerax = "1.4.1"
+mediapipeGenai = "0.10.35"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +43,7 @@ androidx-camera-core = { group = "androidx.camera", name = "camera-core", versio
 androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }
 androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }
 androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camerax" }
+mediapipe-tasks-genai = { group = "com.google.mediapipe", name = "tasks-genai", version.ref = "mediapipeGenai" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

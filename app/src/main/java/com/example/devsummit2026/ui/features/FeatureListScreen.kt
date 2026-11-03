@@ -71,6 +71,12 @@ val defaultFeatures = listOf(
         title = "Google Meet Backgrounds (LiteRT)",
         description = "On-device real-time selfie background blur and virtual replacement with LiteRT",
         route = Screen.MeetBackgrounds.route
+    ),
+    FeatureItem(
+        id = "qwen_on_device_chat",
+        title = "Qwen 2.5 On-Device Chat",
+        description = "On-device conversation with Qwen2.5-0.5B-Instruct powered by MediaPipe GenAI",
+        route = Screen.QwenChat.route
     )
 )
 

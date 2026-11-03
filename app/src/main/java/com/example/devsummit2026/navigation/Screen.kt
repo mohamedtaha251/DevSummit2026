@@ -8,4 +8,5 @@ sealed class Screen(val route: String) {
     data object ImageClassificationTypes : Screen("image_classification_types")
     data object ImageClassification : Screen("image_classification")
     data object MeetBackgrounds : Screen("meet_backgrounds")
+    data object QwenChat : Screen("qwen_chat")
 }
