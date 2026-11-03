@@ -10,7 +10,7 @@ import com.example.devsummit2026.ui.appfunctions.AppFunctionsScreen
 import com.example.devsummit2026.ui.features.FeatureListScreen
 import com.example.devsummit2026.ui.home.HomeScreen
 import com.example.devsummit2026.ui.litert.ImageClassificationScreen
-import com.example.devsummit2026.ui.litert.ImageClassificationTypesScreen
+import com.example.devsummit2026.ui.litert.LiteRtScreen
 import com.example.devsummit2026.ui.litert.MeetBackgroundScreen
 import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
 import com.example.devsummit2026.ui.qwen.QwenChatScreen
@@ -57,12 +57,12 @@ fun AppNavigation(
             )
         }
 
-        composable(Screen.ImageClassificationTypes.route) {
-            ImageClassificationTypesScreen(
+        composable(Screen.LiteRt.route) {
+            LiteRtScreen(
                 onBackClick = {
                     navController.popBackStack()
                 },
-                onTypeClick = { route ->
+                onItemClick = { route ->
                     navController.navigate(route)
                 }
             )

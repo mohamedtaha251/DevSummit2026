@@ -61,22 +61,10 @@ val defaultFeatures = listOf(
         route = Screen.TextRecognition.route
     ),
     FeatureItem(
-        id = "image_classifications",
-        title = "Image Classifications",
-        description = "Explore different types and models for on-device image classification",
-        route = Screen.ImageClassificationTypes.route
-    ),
-    FeatureItem(
-        id = "google_meet_backgrounds",
-        title = "Google Meet Backgrounds (LiteRT)",
-        description = "On-device real-time selfie background blur and virtual replacement with LiteRT",
-        route = Screen.MeetBackgrounds.route
-    ),
-    FeatureItem(
-        id = "qwen_on_device_chat",
-        title = "Qwen 2.5 On-Device Chat",
-        description = "On-device conversation with Qwen2.5-0.5B-Instruct powered by MediaPipe GenAI",
-        route = Screen.QwenChat.route
+        id = "litert",
+        title = "LiteRT",
+        description = "Explore on-device models with LiteRT: Classification, Meet backgrounds, and Qwen chat",
+        route = Screen.LiteRt.route
     )
 )
 

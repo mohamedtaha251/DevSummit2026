@@ -36,29 +36,41 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.devsummit2026.navigation.Screen
 
-data class ClassificationTypeItem(
+data class LiteRtItem(
     val id: String,
     val title: String,
     val description: String,
     val route: String
 )
 
-val defaultClassificationTypes = listOf(
-    ClassificationTypeItem(
-        id = "image_classification_mobilenet",
+val defaultLiteRtItems = listOf(
+    LiteRtItem(
+        id = "image_classification",
         title = "Image Classification",
         description = "On-device image classification with MobileNet v1 quantized using LiteRT",
         route = Screen.ImageClassification.route
+    ),
+    LiteRtItem(
+        id = "google_meet_backgrounds",
+        title = "Google Meet Backgrounds",
+        description = "On-device real-time selfie background blur and virtual replacement with LiteRT",
+        route = Screen.MeetBackgrounds.route
+    ),
+    LiteRtItem(
+        id = "qwen_on_device_chat",
+        title = "Qwen 2.5 On-Device Chat",
+        description = "On-device conversation with Qwen2.5-0.5B-Instruct powered by MediaPipe GenAI",
+        route = Screen.QwenChat.route
     )
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ImageClassificationTypesScreen(
+fun LiteRtScreen(
     onBackClick: () -> Unit,
-    onTypeClick: (String) -> Unit,
+    onItemClick: (String) -> Unit,
     modifier: Modifier = Modifier,
-    types: List<ClassificationTypeItem> = defaultClassificationTypes
+    items: List<LiteRtItem> = defaultLiteRtItems
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -66,7 +78,7 @@ fun ImageClassificationTypesScreen(
             TopAppBar(
                 title = {
                     Text(
-                        text = "Image Classifications",
+                        text = "LiteRT",
                         fontWeight = FontWeight.Bold
                     )
                 },
@@ -95,7 +107,7 @@ fun ImageClassificationTypesScreen(
         ) {
             item {
                 Text(
-                    text = "Select Classification Model",
+                    text = "On-Device AI & Models",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -103,10 +115,10 @@ fun ImageClassificationTypesScreen(
                 )
             }
 
-            items(types, key = { it.id }) { item ->
-                ClassificationTypeCard(
+            items(items, key = { it.id }) { item ->
+                LiteRtCard(
                     item = item,
-                    onClick = { onTypeClick(item.route) }
+                    onClick = { onItemClick(item.route) }
                 )
             }
         }
@@ -114,8 +126,8 @@ fun ImageClassificationTypesScreen(
 }
 
 @Composable
-private fun ClassificationTypeCard(
-    item: ClassificationTypeItem,
+private fun LiteRtCard(
+    item: LiteRtItem,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
