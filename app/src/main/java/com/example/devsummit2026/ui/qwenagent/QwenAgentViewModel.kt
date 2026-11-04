@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.devsummit2026.appfunctions.data.NotesRepository
 import com.example.devsummit2026.appfunctions.model.Note
 import com.example.devsummit2026.ui.qwen.ModelState
+import com.example.devsummit2026.ui.qwenagent.a2ui.NotesA2uiManager
 import com.google.mediapipe.tasks.genai.llminference.LlmInference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -52,6 +53,7 @@ data class AgentMessage(
     val actionType: String? = null,
     val createdNote: Note? = null,
     val searchResults: List<Note>? = null,
+    val a2uiSurfaceId: String? = null,
     val timestamp: Long = System.currentTimeMillis()
 )
 
@@ -72,6 +74,23 @@ class QwenAgentViewModel(application: Application) : AndroidViewModel(applicatio
     val uiState: StateFlow<QwenAgentUiState> = _uiState.asStateFlow()
 
     val repositoryNotes: StateFlow<List<Note>> = NotesRepository.notes
+
+    val a2uiManager: NotesA2uiManager = NotesA2uiManager(
+        scope = viewModelScope,
+        onNoteSavedCallback = { surfaceId, savedNote ->
+            _uiState.update { state ->
+                val updated = state.messages.map { msg ->
+                    if (msg.a2uiSurfaceId == surfaceId) {
+                        msg.copy(
+                            createdNote = savedNote,
+                            step = AgentStep.Success("Saved note: \"${savedNote.title}\"")
+                        )
+                    } else msg
+                }
+                state.copy(messages = updated)
+            }
+        }
+    )
 
     private var llmInference: LlmInference? = null
     private var downloadJob: Job? = null
@@ -416,6 +435,37 @@ class QwenAgentViewModel(application: Application) : AndroidViewModel(applicatio
             return
         }
 
+        // 4. NOTE CREATION INTENT PRE-CHECK: ("create note...", "add note...", etc.)
+        val createPattern = Regex("^(create|add|new)\\s+note\\b.*", RegexOption.IGNORE_CASE)
+        if (createPattern.matches(trimmed)) {
+            val contentPart = if (trimmed.contains(":")) {
+                trimmed.substringAfter(":").trim()
+            } else {
+                trimmed.replace(Regex("^(create|add|new)\\s+note\\s*(to|about|for)?\\s*", RegexOption.IGNORE_CASE), "").trim()
+            }
+            val title = contentPart.take(30).ifBlank { "New Note" }
+            val content = contentPart.ifBlank { title }
+
+            val assistantMessageId = UUID.randomUUID().toString()
+            val surfaceId = a2uiManager.createNoteSurface(title, content)
+            val successStep = AgentStep.Success("A2UI Component Ready")
+            val assistantReply = AgentMessage(
+                id = assistantMessageId,
+                text = "I've generated an interactive A2UI component. Review or edit before saving:",
+                fromUser = false,
+                actionType = "a2uiNoteForm",
+                step = successStep,
+                a2uiSurfaceId = surfaceId
+            )
+            _uiState.update {
+                it.copy(
+                    messages = it.messages + userMessage + assistantReply,
+                    inputText = ""
+                )
+            }
+            return
+        }
+
         // If engine not ready yet, return
         if (engine == null) return
 
@@ -452,30 +502,30 @@ class QwenAgentViewModel(application: Application) : AndroidViewModel(applicatio
                 when (parsedTool) {
                     is ToolCallResult.CreateNote -> {
                         val executingStep = AgentStep.ExecutingAction(
-                            actionName = "createNote",
-                            actionDetails = "Title: \"${parsedTool.title}\""
+                            actionName = "A2UI Form",
+                            actionDetails = "Rendering component: \"${parsedTool.title}\""
                         )
                         updateAssistantMessage(assistantMessageId) {
                             it.copy(
                                 step = executingStep,
-                                actionType = "createNote"
+                                actionType = "a2uiNoteForm"
                             )
                         }
                         _uiState.update { it.copy(currentStep = executingStep) }
 
-                        delay(500)
+                        delay(400)
 
-                        val created = NotesRepository.addNote(
+                        val surfaceId = a2uiManager.createNoteSurface(
                             title = parsedTool.title,
                             content = parsedTool.content
                         )
 
-                        val successStep = AgentStep.Success("Created note: \"${created.title}\"")
+                        val successStep = AgentStep.Success("A2UI Component Ready")
                         updateAssistantMessage(assistantMessageId) {
                             it.copy(
                                 step = successStep,
-                                text = "Successfully created new note.",
-                                createdNote = created
+                                text = "I've generated an interactive A2UI component. Review or edit before saving:",
+                                a2uiSurfaceId = surfaceId
                             )
                         }
                         _uiState.update { it.copy(currentStep = successStep) }

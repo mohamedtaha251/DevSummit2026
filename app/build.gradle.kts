@@ -8,7 +8,9 @@ plugins {
 android {
     namespace = "com.example.devsummit2026"
     compileSdk {
-        version = release(37)
+        version = release(37) {
+            minorApiLevel = 1
+        }
     }
 
     defaultConfig {
@@ -71,6 +73,11 @@ dependencies {
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
     implementation(libs.mediapipe.tasks.genai)
+    implementation("androidx.a2ui:a2ui-engine:1.0.0-alpha02")
+    implementation("androidx.a2ui:a2ui-model:1.0.0-alpha02")
+    implementation("androidx.a2ui.compose:compose-runtime:1.0.0-alpha02")
+    implementation("androidx.a2ui.compose:compose-ui:1.0.0-alpha02")
+    implementation("androidx.compose.material3:material3-a2ui:1.0.0-alpha02")
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

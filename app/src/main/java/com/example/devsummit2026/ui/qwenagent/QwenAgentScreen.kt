@@ -57,6 +57,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.a2ui.A2uiSurface
+import com.example.devsummit2026.ui.qwenagent.a2ui.NotesA2uiManager
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -86,6 +88,7 @@ fun QwenAgentScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val repoNotes by viewModel.repositoryNotes.collectAsState()
+    val a2uiSurfaces by viewModel.a2uiManager.activeSurfaces.collectAsState()
     val listState = rememberLazyListState()
     var showNotesSheet by remember { mutableStateOf(false) }
 
@@ -206,7 +209,11 @@ fun QwenAgentScreen(
                     if (message.fromUser) {
                         UserMessageBubble(message = message)
                     } else {
-                        AssistantAgentCard(message = message)
+                        AssistantAgentCard(
+                            message = message,
+                            a2uiManager = viewModel.a2uiManager,
+                            a2uiSurfaces = a2uiSurfaces
+                        )
                     }
                 }
             }
@@ -367,6 +374,8 @@ private fun UserMessageBubble(
 @Composable
 private fun AssistantAgentCard(
     message: AgentMessage,
+    a2uiManager: NotesA2uiManager,
+    a2uiSurfaces: List<Any>,
     modifier: Modifier = Modifier
 ) {
     // If it's a simple chat/greeting without tools, show a simple clean chat bubble
@@ -420,8 +429,21 @@ private fun AssistantAgentCard(
                 )
             }
 
-            // Note preview card for createNote
-            if (message.createdNote != null) {
+            // Interactive A2UI Component (when agent emits an A2UI surface)
+            if (message.a2uiSurfaceId != null) {
+                val surfaceModel = remember(message.a2uiSurfaceId, a2uiSurfaces) {
+                    a2uiManager.getSurface(message.a2uiSurfaceId)
+                }
+                if (surfaceModel != null) {
+                    A2uiSurface(
+                        surfaceModel = surfaceModel,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            }
+
+            // Note preview card for createNote (saved state fallback)
+            if (message.createdNote != null && message.a2uiSurfaceId == null) {
                 CreatedNoteCard(note = message.createdNote)
             }
 
