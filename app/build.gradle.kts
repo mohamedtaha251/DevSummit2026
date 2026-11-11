@@ -54,6 +54,7 @@ dependencies {
     debugImplementation("com.google.firebase:firebase-appcheck-debug")
     implementation(platform(libs.androidx.compose.bom))
     implementation("androidx.compose.material:material-icons-core")
+    implementation("androidx.compose.material:material-icons-extended")
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.navigation.compose)
