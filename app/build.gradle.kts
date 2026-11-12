@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.google.services)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.firebase.crashlytics)
 }
 
 android {
@@ -51,6 +52,7 @@ android {
 dependencies {
     implementation(platform("com.google.firebase:firebase-bom:35.1.0"))
     implementation("com.google.firebase:firebase-ai")
+    implementation(libs.firebase.crashlytics)
     debugImplementation("com.google.firebase:firebase-appcheck-debug")
     implementation(platform(libs.androidx.compose.bom))
     implementation("androidx.compose.material:material-icons-core")
