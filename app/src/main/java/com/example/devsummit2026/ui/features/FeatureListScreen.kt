@@ -16,7 +16,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.AutoAwesome
+import androidx.compose.material.icons.filled.Devices
+import androidx.compose.material.icons.filled.Layers
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,66 +32,66 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.devsummit2026.navigation.Screen
 
-data class FeatureItem(
+data class CategoryItem(
     val id: String,
     val title: String,
+    val subtitle: String,
     val description: String,
-    val route: String
+    val route: String,
+    val icon: ImageVector,
+    val itemCountBadge: String
 )
 
-val defaultFeatures = listOf(
-    FeatureItem(
-        id = "firebase_ai_logic",
-        title = "Firebase AI logic",
-        description = "Explore AI models and logic labs powered by Firebase and Gemini",
-        route = Screen.Chat.route
+val defaultCategories = listOf(
+    CategoryItem(
+        id = "category_ai",
+        title = "AI",
+        subtitle = "On-Device & Cloud AI",
+        description = "Firebase AI logic, LiteRT models, ML Kit text recognition, App Functions, and Qwen Notes Agent.",
+        route = Screen.AiFeatures.route,
+        icon = Icons.Default.AutoAwesome,
+        itemCountBadge = "5 Labs"
     ),
-    FeatureItem(
-        id = "app_functions",
-        title = "App Functions (Quick Notes)",
-        description = "Expose on-device functions to AI agents via androidx.appfunctions",
-        route = Screen.AppFunctions.route
-    ),
-    FeatureItem(
-        id = "ml_kit_text_recognition",
-        title = "ML Kit: Text Recognition",
-        description = "Extract and recognize text from images on-device with Google ML Kit",
-        route = Screen.TextRecognition.route
-    ),
-    FeatureItem(
-        id = "litert",
-        title = "LiteRT",
-        description = "Explore on-device models with LiteRT: Classification, Meet backgrounds, and Qwen chat",
-        route = Screen.LiteRt.route
-    ),
-    FeatureItem(
-        id = "qwen_notes_agent",
-        title = "Qwen 2.5 Notes Agent",
-        description = "Autonomous on-device agent with live action stepper controlling Notes",
-        route = Screen.QwenAgent.route
+    CategoryItem(
+        id = "category_compose",
+        title = "Compose",
+        subtitle = "Scale for All Screens",
+        description = "Android Dev Summit 2026: Live MediaQuery, window metrics, foldables posture & adaptive layouts.",
+        route = Screen.ComposeFeatures.route,
+        icon = Icons.Default.Devices,
+        itemCountBadge = "3 Concepts"
     )
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FeatureListScreen(
-    onFeatureClick: (FeatureItem) -> Unit,
+    onCategoryClick: (CategoryItem) -> Unit,
     modifier: Modifier = Modifier,
-    features: List<FeatureItem> = defaultFeatures
+    categories: List<CategoryItem> = defaultCategories
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        text = "DevSummit 2026",
-                        fontWeight = FontWeight.Bold
-                    )
+                    Column {
+                        Text(
+                            text = "DevSummit 2026",
+                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                        Text(
+                            text = "Learning & Exploration Hub",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
+                        )
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -103,22 +105,22 @@ fun FeatureListScreen(
                 .fillMaxSize()
                 .padding(insets),
             contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             item {
                 Text(
-                    text = "Features & Labs",
+                    text = "Categories",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(bottom = 4.dp)
+                    modifier = Modifier.padding(bottom = 2.dp)
                 )
             }
 
-            items(features, key = { it.id }) { item ->
-                FeatureCard(
+            items(categories, key = { it.id }) { item ->
+                CategoryCard(
                     item = item,
-                    onClick = { onFeatureClick(item) }
+                    onClick = { onCategoryClick(item) }
                 )
             }
         }
@@ -126,8 +128,8 @@ fun FeatureListScreen(
 }
 
 @Composable
-private fun FeatureCard(
-    item: FeatureItem,
+private fun CategoryCard(
+    item: CategoryItem,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -135,54 +137,95 @@ private fun FeatureCard(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+                .padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            Surface(
-                shape = RoundedCornerShape(12.dp),
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.size(48.dp)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Icon(
-                    imageVector = Icons.Default.Star,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimary,
-                    modifier = Modifier
-                        .padding(12.dp)
-                        .size(24.dp)
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(48.dp)
+                    ) {
+                        Icon(
+                            imageVector = item.icon,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onPrimary,
+                            modifier = Modifier
+                                .padding(12.dp)
+                                .size(24.dp)
+                        )
+                    }
+                    Column {
+                        Text(
+                            text = item.title,
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Text(
+                            text = item.subtitle,
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
+
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = MaterialTheme.colorScheme.primaryContainer
+                ) {
+                    Text(
+                        text = item.itemCountBadge,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                        style = MaterialTheme.typography.labelSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                }
             }
 
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = item.title,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = item.description,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f)
-                )
-            }
-
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                contentDescription = "Navigate to ${item.title}",
-                tint = MaterialTheme.colorScheme.primary
+            Text(
+                text = item.description,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.85f)
             )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Explore ${item.title}",
+                    style = MaterialTheme.typography.labelMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.size(4.dp))
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(16.dp)
+                )
+            }
         }
     }
 }
