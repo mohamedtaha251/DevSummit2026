@@ -1,0 +1,55 @@
+# ==============================================================================
+# Lightbuild Root Project Configuration (Android Dev Summit 2026)
+# Declarative, Agent-Ready Android Build System
+# ==============================================================================
+# Lightbuild replaces imperative, dynamic build execution scripts (Gradle Kotlin DSL)
+# with structured, schema-validated declarative files.
+#
+# Key Advantages:
+# 1. Zero "Gradle Tax": Eliminates daemon warmup, dynamic AST evaluation, and script compilation.
+# 2. Agent-Native: AI coding agents read/mutate schemas without breaking Kotlin DSL closures.
+# 3. Deterministic: Reproducible lockfiles (resolved.deps) ensure identical builds across CI/local.
+
+schemaVersion: "2026.1"
+projectName: "DevSummit2026"
+
+# Root Module Layout
+modules:
+  - path: ":app"
+    directory: "app"
+    type: "android-application"
+
+# Universal Toolchain Declarations
+toolchain:
+  jdk:
+    version: 17
+    vendor: "temurin"
+    autoDownload: true
+  kotlin:
+    version: "2.2.10"
+    compilerPlugins:
+      - "compose"
+      - "ksp"
+  lightbuild:
+    version: "1.0.0-rc01"
+    agentValidation: "strict-schema"
+    deterministicLockfile: true
+
+# Repositories & Security Policies
+repositories:
+  - name: "google"
+    url: "https://maven.google.com"
+    contentFilter:
+      includeGroups:
+        - "com.android.*"
+        - "com.google.*"
+        - "androidx.*"
+  - name: "mavenCentral"
+    url: "https://repo1.maven.org/maven2"
+  - name: "gradlePluginPortal"
+    url: "https://plugins.gradle.org/m2"
+
+options:
+  parallelEvaluation: true
+  configurationCache: "enabled"
+  lockfilePolicy: "strict" # Enforces app/resolved.deps checksum matching

@@ -1,0 +1,126 @@
+# ==============================================================================
+# Lightbuild Module Configuration: :app
+# Android Application Target (Android Dev Summit 2026)
+# ==============================================================================
+# Declarative, schema-validated module definition for DevSummit2026 application.
+# Replaces imperative app/build.gradle.kts with agent-readable data structures.
+
+schemaVersion: "2026.1"
+module: ":app"
+type: "android-application"
+
+android:
+  namespace: "com.example.devsummit2026"
+  compileSdk: 37
+  compileSdkExtension: 1 # minorApiLevel = 1
+  minSdk: 24
+  targetSdk: 37
+  versionCode: 1
+  versionName: "1.0"
+
+  buildFeatures:
+    compose: true
+    buildConfig: true
+
+  packaging:
+    resources:
+      noCompress:
+        - "tflite"
+
+  optimization:
+    release:
+      minify: true
+      shrinkResources: false
+      packageScope:
+        - "androidx.**"
+        - "kotlin.**"
+        - "kotlinx.**"
+
+toolchain:
+  jvmTarget: "11"
+  kotlin:
+    version: "2.2.10"
+    composeCompiler:
+      enabled: true
+
+dependencies:
+  # Platforms & BOMs
+  - type: "platform"
+    coordinate: "com.google.firebase:firebase-bom:35.1.0"
+  - type: "platform"
+    coordinate: "androidx.compose:compose-bom:2026.02.01"
+
+  # Firebase Suite
+  - type: "implementation"
+    coordinate: "com.google.firebase:firebase-ai"
+  - type: "implementation"
+    coordinate: "com.google.firebase:firebase-crashlytics:3.0.8"
+  - type: "debugImplementation"
+    coordinate: "com.google.firebase:firebase-appcheck-debug"
+
+  # Jetpack Compose UI
+  - type: "implementation"
+    coordinate: "androidx.compose.material3:material3"
+  - type: "implementation"
+    coordinate: "androidx.compose.material:material-icons-core"
+  - type: "implementation"
+    coordinate: "androidx.compose.material:material-icons-extended"
+  - type: "implementation"
+    coordinate: "androidx.activity:activity-compose:1.8.0"
+  - type: "implementation"
+    coordinate: "androidx.navigation:navigation-compose:2.8.8"
+  - type: "implementation"
+    coordinate: "androidx.compose.ui:ui"
+  - type: "implementation"
+    coordinate: "androidx.compose.ui:ui-graphics"
+  - type: "implementation"
+    coordinate: "androidx.compose.ui:ui-tooling-preview"
+  - type: "debugImplementation"
+    coordinate: "androidx.compose.ui:ui-tooling"
+
+  # AndroidX Core & Lifecycle Architecture
+  - type: "implementation"
+    coordinate: "androidx.core:core-ktx:1.19.1"
+  - type: "implementation"
+    coordinate: "androidx.lifecycle:lifecycle-runtime-ktx:2.11.0"
+  - type: "implementation"
+    coordinate: "androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0"
+
+  # AndroidX AppFunctions
+  - type: "implementation"
+    coordinate: "androidx.appfunctions:appfunctions:1.0.0-beta01"
+  - type: "ksp"
+    coordinate: "androidx.appfunctions:appfunctions-compiler:1.0.0-beta01"
+
+  # On-Device ML & Vision (LiteRT, MediaPipe, ML Kit)
+  - type: "implementation"
+    coordinate: "com.google.android.gms:play-services-mlkit-text-recognition:19.0.1"
+  - type: "implementation"
+    coordinate: "com.google.android.gms:play-services-tflite-java:16.5.0"
+  - type: "implementation"
+    coordinate: "com.google.android.gms:play-services-tflite-gpu:16.5.0"
+  - type: "implementation"
+    coordinate: "com.google.mediapipe:tasks-genai:0.10.35"
+
+  # CameraX
+  - type: "implementation"
+    coordinate: "androidx.camera:camera-core:1.4.1"
+  - type: "implementation"
+    coordinate: "androidx.camera:camera-camera2:1.4.1"
+  - type: "implementation"
+    coordinate: "androidx.camera:camera-lifecycle:1.4.1"
+  - type: "implementation"
+    coordinate: "androidx.camera:camera-view:1.4.1"
+
+  # Android A2UI (Agent to UI Engine)
+  - type: "implementation"
+    coordinate: "androidx.a2ui:a2ui-engine:1.0.0-alpha02"
+  - type: "implementation"
+    coordinate: "androidx.a2ui:a2ui-model:1.0.0-alpha02"
+  - type: "implementation"
+    coordinate: "androidx.a2ui.compose:compose-runtime:1.0.0-alpha02"
+  - type: "implementation"
+    coordinate: "androidx.a2ui.compose:compose-ui:1.0.0-alpha02"
+  - type: "implementation"
+    coordinate: "androidx.compose.material3:material3-a2ui:1.0.0-alpha02"
+
