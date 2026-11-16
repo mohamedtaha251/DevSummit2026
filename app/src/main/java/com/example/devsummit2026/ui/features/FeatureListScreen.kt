@@ -19,6 +19,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Devices
 import androidx.compose.material.icons.filled.Layers
+import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -65,6 +66,15 @@ val defaultCategories = listOf(
         route = Screen.ComposeFeatures.route,
         icon = Icons.Default.Devices,
         itemCountBadge = "3 Concepts"
+    ),
+    CategoryItem(
+        id = "category_security",
+        title = "Security",
+        subtitle = "Advanced Protection & Defense",
+        description = "Android Dev Summit 2026: Advanced Protection Mode (API 35+), Zero-Permission APIs, and Adaptive Defense.",
+        route = Screen.SecurityFeatures.route,
+        icon = Icons.Default.Shield,
+        itemCountBadge = "API 35+"
     )
 )
 
