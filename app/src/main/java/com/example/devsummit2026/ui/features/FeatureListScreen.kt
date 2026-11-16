@@ -66,25 +66,16 @@ val defaultCategories = listOf(
         description = "Android Dev Summit 2026: Live MediaQuery, window metrics, foldables posture & adaptive layouts.",
         route = Screen.ComposeFeatures.route,
         icon = Icons.Default.Devices,
-        itemCountBadge = "3 Concepts"
+        itemCountBadge = "Responsive UI"
     ),
     CategoryItem(
         id = "category_security",
-        title = "Security",
-        subtitle = "Advanced Protection & Defense",
-        description = "Android Dev Summit 2026: Advanced Protection Mode (API 35+), Zero-Permission APIs, and Adaptive Defense.",
-        route = Screen.SecurityFeatures.route,
+        title = "Security & Privacy",
+        subtitle = "Advanced Defense & Zero-Permission",
+        description = "Android Dev Summit 2026: Advanced Protection Mode (API 35+), Zero-Permission SMS OTP, and One-Time Location.",
+        route = Screen.SecurityFeaturesList.route,
         icon = Icons.Default.Shield,
-        itemCountBadge = "API 35+"
-    ),
-    CategoryItem(
-        id = "category_location",
-        title = "Modern Privacy",
-        subtitle = "One-Time Location Access",
-        description = "Android Dev Summit 2026: Zero-popup friction, single-tap consent, ephemeral permission & onlyForLocationButton.",
-        route = Screen.OneTimeLocation.route,
-        icon = Icons.Default.NearMe,
-        itemCountBadge = "Privacy Lab"
+        itemCountBadge = "3 Labs"
     )
 )
 

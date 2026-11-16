@@ -11,6 +11,7 @@ import com.example.devsummit2026.ui.appfunctions.AppFunctionsScreen
 import com.example.devsummit2026.ui.features.AiFeatureListScreen
 import com.example.devsummit2026.ui.features.ComposeFeatureListScreen
 import com.example.devsummit2026.ui.features.FeatureListScreen
+import com.example.devsummit2026.ui.features.SecurityFeatureListScreen
 import com.example.devsummit2026.ui.home.HomeScreen
 import com.example.devsummit2026.ui.litert.ImageClassificationScreen
 import com.example.devsummit2026.ui.litert.LiteRtScreen
@@ -142,19 +143,28 @@ fun AppNavigation(
             )
         }
 
-        // Security & Advanced Protection Screen
-        composable(Screen.SecurityFeatures.route) {
-            SecurityFeaturesScreen(
+        // Category 3: Security & Privacy Features List
+        composable(Screen.SecurityFeaturesList.route) {
+            SecurityFeatureListScreen(
+                onItemClick = { item ->
+                    navController.navigate(item.route)
+                },
                 onBackClick = {
                     navController.popBackStack()
-                },
-                onNavigateToSmsOtp = {
-                    navController.navigate(Screen.SmsVerification.route)
                 }
             )
         }
 
-        // SMS OTP: Old vs New Approach Screen
+        // Subcategory: Advanced Protection Screen
+        composable(Screen.SecurityFeatures.route) {
+            SecurityFeaturesScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // Subcategory: SMS OTP: Old vs New Approach Screen
         composable(Screen.SmsVerification.route) {
             SmsOtpComparisonScreen(
                 onBackClick = {
@@ -163,7 +173,7 @@ fun AppNavigation(
             )
         }
 
-        // Modern Privacy & One-Time Location Screen
+        // Subcategory: Modern Privacy & One-Time Location Screen
         composable(Screen.OneTimeLocation.route) {
             OneTimeLocationScreen(
                 onBackClick = {

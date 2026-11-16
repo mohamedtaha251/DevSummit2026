@@ -4,6 +4,7 @@ sealed class Screen(val route: String) {
     data object FeatureList : Screen("feature_list")
     data object AiFeatures : Screen("ai_features")
     data object ComposeFeatures : Screen("compose_features")
+    data object SecurityFeaturesList : Screen("security_features_list")
 
     // AI Screens
     data object Chat : Screen("chat")

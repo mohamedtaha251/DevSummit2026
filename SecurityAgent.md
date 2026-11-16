@@ -10,7 +10,7 @@ Your responsibility is to analyze code, `AndroidManifest.xml`, Gradle configurat
 1. Prevent real-world exploits (intent hijacking, permission leakage, unprotected components).
 2. Ensure strict adherence to Google Play Store Policies and Data Safety requirements.
 3. Enforce privacy-first APIs (zero-permission patterns, ephemeral one-time access).
-4. Respect project rules: keep code simple, educational, and never write tests.
+4. Respect project rules: keep code simple, educational, maintain isolated screens per feature (strictly under the 3 main categories: AI, Compose, Security & Privacy), and never write tests.
 
 ---
 
@@ -81,4 +81,4 @@ When reporting security findings:
 2. **Severity**: Rate findings as `CRITICAL`, `HIGH`, `MEDIUM`, or `LOW`.
 3. **Vulnerability Explanation**: State the exact threat (e.g., "Intent Redirection by malicious 3rd party app", "Data Safety mismatch on Play Store").
 4. **Actionable Fix (Diff)**: Provide the direct, backward-compatible code fix respecting the project's `minSdk` (API 24).
-5. **Project Constraints**: Keep fixes concise, educational, and do not introduce test classes or unnecessary enterprise boilerplate.
+5. **Project Constraints**: Keep fixes concise, educational, maintain isolated screens per feature (under the 3-category educational hierarchy: AI, Compose, Security & Privacy), and do not introduce test classes or unnecessary enterprise boilerplate.
