@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.QUERY_ADVANCED_PROTECTION_MODE" />
 
+    <!-- Educational: Demonstration of legacy permission-based SMS approach vs zero-permission -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
     <!-- Android Dev Summit 2026: Modern One-Time Location Access pattern -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission

@@ -20,6 +20,7 @@ import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
 import com.example.devsummit2026.ui.qwen.QwenChatScreen
 import com.example.devsummit2026.ui.qwenagent.QwenAgentScreen
 import com.example.devsummit2026.ui.security.SecurityFeaturesScreen
+import com.example.devsummit2026.ui.security.SmsOtpComparisonScreen
 
 @Composable
 fun AppNavigation(
@@ -144,6 +145,18 @@ fun AppNavigation(
         // Security & Advanced Protection Screen
         composable(Screen.SecurityFeatures.route) {
             SecurityFeaturesScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                },
+                onNavigateToSmsOtp = {
+                    navController.navigate(Screen.SmsVerification.route)
+                }
+            )
+        }
+
+        // SMS OTP: Old vs New Approach Screen
+        composable(Screen.SmsVerification.route) {
+            SmsOtpComparisonScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

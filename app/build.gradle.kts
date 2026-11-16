@@ -66,6 +66,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.play.services.auth.api.phone)
     implementation(libs.androidx.appfunctions)
     ksp(libs.androidx.appfunctions.compiler)
     implementation(libs.mlkit.text.recognition)
