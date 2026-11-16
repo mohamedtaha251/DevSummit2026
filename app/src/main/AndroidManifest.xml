@@ -6,6 +6,13 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.QUERY_ADVANCED_PROTECTION_MODE" />
+
+    <!-- Android Dev Summit 2026: Modern One-Time Location Access pattern -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:usesPermissionFlags="onlyForLocationButton" />
+    <uses-permission android:name="android.permission.USE_LOCATION_BUTTON" />
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />

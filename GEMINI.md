@@ -14,3 +14,8 @@ These rules are permanent guidelines for this repository. All AI assistants and 
 - **Do not write or maintain tests**: Do not create, generate, or maintain unit tests, UI tests, or instrumented tests (`test/`, `androidTest/`).
 - Remove any test files to keep iteration speed as fast as possible.
 - Focus entirely on direct feature implementation without testing overhead.
+
+## 4. Minimalist UI & Short Screens
+- **Keep screens small and action-focused**: Avoid large explanatory text cards, verbose descriptions, redundant UI widgets, or unused text.
+- Focus purely on the core interactive actions and essential data displays.
+- Never add unused UI, verbose paragraphs, or unnecessary text.

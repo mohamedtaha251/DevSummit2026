@@ -19,6 +19,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Devices
 import androidx.compose.material.icons.filled.Layers
+import androidx.compose.material.icons.filled.NearMe
 import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -75,6 +76,15 @@ val defaultCategories = listOf(
         route = Screen.SecurityFeatures.route,
         icon = Icons.Default.Shield,
         itemCountBadge = "API 35+"
+    ),
+    CategoryItem(
+        id = "category_location",
+        title = "Modern Privacy",
+        subtitle = "One-Time Location Access",
+        description = "Android Dev Summit 2026: Zero-popup friction, single-tap consent, ephemeral permission & onlyForLocationButton.",
+        route = Screen.OneTimeLocation.route,
+        icon = Icons.Default.NearMe,
+        itemCountBadge = "Privacy Lab"
     )
 )
 

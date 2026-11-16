@@ -15,6 +15,7 @@ import com.example.devsummit2026.ui.home.HomeScreen
 import com.example.devsummit2026.ui.litert.ImageClassificationScreen
 import com.example.devsummit2026.ui.litert.LiteRtScreen
 import com.example.devsummit2026.ui.litert.MeetBackgroundScreen
+import com.example.devsummit2026.ui.location.OneTimeLocationScreen
 import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
 import com.example.devsummit2026.ui.qwen.QwenChatScreen
 import com.example.devsummit2026.ui.qwenagent.QwenAgentScreen
@@ -143,6 +144,15 @@ fun AppNavigation(
         // Security & Advanced Protection Screen
         composable(Screen.SecurityFeatures.route) {
             SecurityFeaturesScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // Modern Privacy & One-Time Location Screen
+        composable(Screen.OneTimeLocation.route) {
+            OneTimeLocationScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }
