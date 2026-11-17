@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Fingerprint
@@ -47,6 +49,7 @@ fun SecurityFeaturesScreen(
 ) {
     val context = LocalContext.current
     val securityManager = remember { SecurityManager(context) }
+
     var isAdvancedProtection by remember { mutableStateOf(securityManager.isAdvancedProtectionEnabled()) }
     var showStepUpDialog by remember { mutableStateOf(false) }
 
@@ -54,7 +57,7 @@ fun SecurityFeaturesScreen(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
-                title = { Text("Advanced Protection") },
+                title = { Text("Advanced Protection Mode") },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -71,10 +74,11 @@ fun SecurityFeaturesScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(insets)
+                .verticalScroll(rememberScrollState())
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Status Card
+            // Status Card - Advanced Protection
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),

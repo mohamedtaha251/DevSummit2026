@@ -5,6 +5,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.app
 import com.google.firebase.appcheck.appCheck
 import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 
 object FirebaseAppCheckManager {
     fun initialize(isDebug: Boolean) {
@@ -24,6 +25,10 @@ object FirebaseAppCheckManager {
 
             Firebase.appCheck.installAppCheckProviderFactory(
                 DebugAppCheckProviderFactory.getInstance()
+            )
+        } else {
+            Firebase.appCheck.installAppCheckProviderFactory(
+                PlayIntegrityAppCheckProviderFactory.getInstance()
             )
         }
     }

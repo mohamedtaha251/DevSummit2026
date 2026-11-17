@@ -21,6 +21,7 @@ sealed class Screen(val route: String) {
 
     // Security Screen
     data object SecurityFeatures : Screen("security_features")
+    data object PlayIntegrity : Screen("play_integrity")
     data object SmsVerification : Screen("sms_verification")
 
     // Modern Privacy & Location

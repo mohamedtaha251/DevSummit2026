@@ -18,6 +18,7 @@ camerax = "1.4.1"
 mediapipeGenai = "0.10.35"
 crashlytics = "3.0.8"
 playServicesAuthApiPhone = "18.1.0"
+playIntegrity = "1.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -48,6 +49,7 @@ androidx-camera-view = { group = "androidx.camera", name = "camera-view", versio
 mediapipe-tasks-genai = { group = "com.google.mediapipe", name = "tasks-genai", version.ref = "mediapipeGenai" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
 play-services-auth-api-phone = { group = "com.google.android.gms", name = "play-services-auth-api-phone", version.ref = "playServicesAuthApiPhone" }
+play-integrity = { group = "com.google.android.play", name = "integrity", version.ref = "playIntegrity" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

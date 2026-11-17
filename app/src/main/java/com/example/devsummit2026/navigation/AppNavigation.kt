@@ -20,6 +20,7 @@ import com.example.devsummit2026.ui.location.OneTimeLocationScreen
 import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
 import com.example.devsummit2026.ui.qwen.QwenChatScreen
 import com.example.devsummit2026.ui.qwenagent.QwenAgentScreen
+import com.example.devsummit2026.ui.security.PlayIntegrityScreen
 import com.example.devsummit2026.ui.security.SecurityFeaturesScreen
 import com.example.devsummit2026.ui.security.SmsOtpComparisonScreen
 
@@ -158,6 +159,15 @@ fun AppNavigation(
         // Subcategory: Advanced Protection Screen
         composable(Screen.SecurityFeatures.route) {
             SecurityFeaturesScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // Subcategory: Play Integrity API Screen
+        composable(Screen.PlayIntegrity.route) {
+            PlayIntegrityScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

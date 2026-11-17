@@ -54,6 +54,8 @@ dependencies {
     implementation("com.google.firebase:firebase-ai")
     implementation(libs.firebase.crashlytics)
     debugImplementation("com.google.firebase:firebase-appcheck-debug")
+    implementation("com.google.firebase:firebase-appcheck-playintegrity")
+    implementation(libs.play.integrity)
     implementation(platform(libs.androidx.compose.bom))
     implementation("androidx.compose.material:material-icons-core")
     implementation("androidx.compose.material:material-icons-extended")

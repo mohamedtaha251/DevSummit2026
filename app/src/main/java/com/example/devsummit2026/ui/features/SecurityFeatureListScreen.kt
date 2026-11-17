@@ -18,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.NearMe
+import androidx.compose.material.icons.filled.Security
 import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Sms
 import androidx.compose.material3.Card
@@ -56,6 +57,14 @@ val defaultSecurityFeatureItems = listOf(
         description = "Detect enrollment in Advanced Protection and gate high-risk actions with step-up biometric authentication.",
         route = Screen.SecurityFeatures.route,
         icon = Icons.Default.Shield
+    ),
+    SecurityFeatureItem(
+        id = "play_integrity",
+        title = "Play Integrity API",
+        badge = "Attestation",
+        description = "Runtime verification of app binary, genuine hardware, and user licensing against fraud and tampering.",
+        route = Screen.PlayIntegrity.route,
+        icon = Icons.Default.Security
     ),
     SecurityFeatureItem(
         id = "sms_otp",
