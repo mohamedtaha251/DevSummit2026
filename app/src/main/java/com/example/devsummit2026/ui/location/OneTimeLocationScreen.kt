@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.NearMe
 import androidx.compose.material.icons.filled.Security
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -42,6 +41,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.core.locationbutton.compose.LocationButton
+import androidx.core.locationbutton.compose.LocationButtonTextType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import java.util.Locale
 
@@ -59,14 +60,7 @@ fun OneTimeLocationScreen(
         viewModel.checkPermission(context)
     }
 
-    // Launcher 1: Single Permission for One-Time Location (Coarse / "Only this time")
-    val oneTimePermissionLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
-        viewModel.onOneTimePermissionResult(isGranted, context)
-    }
-
-    // Launcher 2: Normal Permission request with full dialog (Fine + Coarse)
+    // Normal Permission request with full dialog (Fine + Coarse)
     val normalPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions()
     ) { permissions ->
@@ -117,7 +111,7 @@ fun OneTimeLocationScreen(
             Text(
                 text = when (uiState.selectedMode) {
                     LocationMode.ONE_TIME_BUTTON ->
-                        "One-Time Button: Single-permission flow • Select 'Only this time' • Auto-expires"
+                        "Location Button: Android 17 private alternative • No permission dialog • Ephemeral session"
                     LocationMode.NORMAL_PERMISSION ->
                         "Normal Request: Prompts full dialog (Precise/Approximate) • Persistent access"
                 },
@@ -128,37 +122,16 @@ fun OneTimeLocationScreen(
             // Interactive Action Button
             when (uiState.selectedMode) {
                 LocationMode.ONE_TIME_BUTTON -> {
-                    Button(
-                        onClick = {
-                            if (uiState.isPermissionGranted) {
-                                viewModel.fetchOneTimeLocation(context)
-                            } else {
-                                oneTimePermissionLauncher.launch(Manifest.permission.ACCESS_COARSE_LOCATION)
-                            }
-                        },
-                        enabled = !uiState.isAcquiring,
+                    LocationButton(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(50.dp),
-                        shape = RoundedCornerShape(12.dp)
-                    ) {
-                        if (uiState.isAcquiring) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(20.dp),
-                                strokeWidth = 2.dp,
-                                color = MaterialTheme.colorScheme.onPrimary
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text("Acquiring...")
-                        } else {
-                            Icon(Icons.Default.NearMe, contentDescription = null, modifier = Modifier.size(18.dp))
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                if (uiState.isPermissionGranted) "Get One-Time Location"
-                                else "Request One-Time Location"
-                            )
+                        cornerRadius = 12.dp,
+                        textType = LocationButtonTextType.UsePreciseLocation,
+                        onPermissionResult = { isGranted ->
+                            viewModel.onOneTimePermissionResult(isGranted, context)
                         }
-                    }
+                    )
                 }
 
                 LocationMode.NORMAL_PERMISSION -> {

@@ -84,6 +84,7 @@ dependencies {
     implementation("androidx.a2ui.compose:compose-runtime:1.0.0-alpha02")
     implementation("androidx.a2ui.compose:compose-ui:1.0.0-alpha02")
     implementation("androidx.compose.material3:material3-a2ui:1.0.0-alpha02")
+    implementation(libs.androidx.locationbutton.compose)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
