@@ -20,6 +20,7 @@ crashlytics = "3.0.8"
 playServicesAuthApiPhone = "18.1.0"
 playIntegrity = "1.4.0"
 locationbutton = "1.0.0-alpha01"
+cronet = "18.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +53,7 @@ firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashly
 play-services-auth-api-phone = { group = "com.google.android.gms", name = "play-services-auth-api-phone", version.ref = "playServicesAuthApiPhone" }
 play-integrity = { group = "com.google.android.play", name = "integrity", version.ref = "playIntegrity" }
 androidx-locationbutton-compose = { group = "androidx.core.locationbutton", name = "locationbutton-compose", version.ref = "locationbutton" }
+cronet-play-services = { group = "com.google.android.gms", name = "play-services-cronet", version.ref = "cronet" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

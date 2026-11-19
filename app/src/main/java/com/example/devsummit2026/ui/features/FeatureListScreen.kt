@@ -72,10 +72,10 @@ val defaultCategories = listOf(
         id = "category_security",
         title = "Security & Privacy",
         subtitle = "Advanced Defense & Zero-Permission",
-        description = "Android Dev Summit 2026: Advanced Protection Mode, Play Integrity API, Zero-Permission SMS OTP, and One-Time Location.",
+        description = "Advanced Protection Mode, Play Integrity API, Zero-Permission SMS OTP, One-Time Location, and Cronet QUIC Handover.",
         route = Screen.SecurityFeaturesList.route,
         icon = Icons.Default.Shield,
-        itemCountBadge = "4 Labs"
+        itemCountBadge = "5 Labs"
     )
 )
 

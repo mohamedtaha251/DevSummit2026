@@ -26,4 +26,7 @@ sealed class Screen(val route: String) {
 
     // Modern Privacy & Location
     data object OneTimeLocation : Screen("one_time_location")
+
+    // Resilient Networking
+    data object CronetUpload : Screen("cronet_upload")
 }

@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.CloudUpload
 import androidx.compose.material.icons.filled.NearMe
 import androidx.compose.material.icons.filled.Security
 import androidx.compose.material.icons.filled.Shield
@@ -81,6 +82,14 @@ val defaultSecurityFeatureItems = listOf(
         description = "Zero-popup friction, single-tap consent, ephemeral permission with onlyForLocationButton flags.",
         route = Screen.OneTimeLocation.route,
         icon = Icons.Default.NearMe
+    ),
+    SecurityFeatureItem(
+        id = "cronet_quic_upload",
+        title = "Cronet & QUIC Migration",
+        badge = "HTTP/3 Handover",
+        description = "Seamless Wi-Fi to Cellular handover with QUIC connection migration during active streaming upload without socket resets.",
+        route = Screen.CronetUpload.route,
+        icon = Icons.Default.CloudUpload
     )
 )
 
