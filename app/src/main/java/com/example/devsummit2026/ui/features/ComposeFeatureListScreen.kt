@@ -18,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.GridOn
+import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -54,6 +55,14 @@ val defaultComposeConceptItems = listOf(
         description = "Shows live width & height numbers. In portrait it displays as a 1-column list; rotating to landscape automatically transforms it into a multi-column grid.",
         route = Screen.AdaptiveMediaQuery.route,
         icon = Icons.Default.GridOn
+    ),
+    ComposeConceptItem(
+        id = "frame_pacing_jank_stats",
+        title = "UI Frame Pacing & Jank Elimination",
+        concept = "VSYNC & JankStats (16.6ms)",
+        description = "Live frame telemetry using AndroidX JankStats. Compares synchronous main-thread budget violations against frame-paced deferred phases.",
+        route = Screen.FramePacing.route,
+        icon = Icons.Default.Speed
     )
 )
 

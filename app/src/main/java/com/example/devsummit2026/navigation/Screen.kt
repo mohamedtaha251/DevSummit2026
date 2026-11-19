@@ -18,6 +18,7 @@ sealed class Screen(val route: String) {
 
     // Compose Screen
     data object AdaptiveMediaQuery : Screen("adaptive_media_query")
+    data object FramePacing : Screen("frame_pacing_jank_stats")
 
     // Security Screen
     data object SecurityFeatures : Screen("security_features")

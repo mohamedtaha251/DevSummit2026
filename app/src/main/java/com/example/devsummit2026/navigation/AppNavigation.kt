@@ -13,6 +13,7 @@ import com.example.devsummit2026.ui.features.AiFeatureListScreen
 import com.example.devsummit2026.ui.features.ComposeFeatureListScreen
 import com.example.devsummit2026.ui.features.FeatureListScreen
 import com.example.devsummit2026.ui.features.SecurityFeatureListScreen
+import com.example.devsummit2026.ui.framepacing.FramePacingComparisonScreen
 import com.example.devsummit2026.ui.home.HomeScreen
 import com.example.devsummit2026.ui.litert.ImageClassificationScreen
 import com.example.devsummit2026.ui.litert.LiteRtScreen
@@ -71,6 +72,15 @@ fun AppNavigation(
         // Compose Screen: Live Width/Height & Responsive List-to-Grid on Rotation
         composable(Screen.AdaptiveMediaQuery.route) {
             AdaptiveScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // Compose Screen: UI Frame Pacing & JankStats
+        composable(Screen.FramePacing.route) {
+            FramePacingComparisonScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

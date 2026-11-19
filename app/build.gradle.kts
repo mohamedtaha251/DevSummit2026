@@ -86,6 +86,7 @@ dependencies {
     implementation("androidx.compose.material3:material3-a2ui:1.0.0-alpha02")
     implementation(libs.androidx.locationbutton.compose)
     implementation(libs.cronet.play.services)
+    implementation("androidx.metrics:metrics-performance:1.0.0")
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
