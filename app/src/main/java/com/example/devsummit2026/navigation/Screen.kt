@@ -30,4 +30,7 @@ sealed class Screen(val route: String) {
 
     // Resilient Networking
     data object CronetUpload : Screen("cronet_upload")
+
+    // Performance & Coroutine Tracing Lab
+    data object TracingBenchmark : Screen("tracing_benchmark")
 }

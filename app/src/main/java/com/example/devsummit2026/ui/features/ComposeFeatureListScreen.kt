@@ -63,6 +63,14 @@ val defaultComposeConceptItems = listOf(
         description = "Live frame telemetry using AndroidX JankStats. Compares synchronous main-thread budget violations against frame-paced deferred phases.",
         route = Screen.FramePacing.route,
         icon = Icons.Default.Speed
+    ),
+    ComposeConceptItem(
+        id = "tracing_benchmark",
+        title = "Tracing & Perfetto Lab",
+        concept = "Coroutine Profiling & System Trace",
+        description = "Side-by-side comparison of blocking Dispatchers.Main vs smooth Dispatchers.Default using androidx.tracing and Perfetto.",
+        route = Screen.TracingBenchmark.route,
+        icon = Icons.Default.Speed
     )
 )
 

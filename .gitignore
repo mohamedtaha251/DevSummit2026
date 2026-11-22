@@ -8,3 +8,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Profiling, Tracing & Benchmark dumps
+*.perfetto-trace
+*.trace
+*.pftrace
+/traces/
+/benchmark_traces*

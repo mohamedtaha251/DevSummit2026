@@ -21,6 +21,7 @@ import androidx.compose.material.icons.filled.Devices
 import androidx.compose.material.icons.filled.Layers
 import androidx.compose.material.icons.filled.NearMe
 import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -76,6 +77,15 @@ val defaultCategories = listOf(
         route = Screen.SecurityFeaturesList.route,
         icon = Icons.Default.Shield,
         itemCountBadge = "5 Labs"
+    ),
+    CategoryItem(
+        id = "category_tracing",
+        title = "Tracing & Perfetto",
+        subtitle = "Coroutine & System Profiling",
+        description = "Side-by-side comparison of blocking Dispatchers.Main vs smooth Dispatchers.Default using androidx.tracing and Perfetto.",
+        route = Screen.TracingBenchmark.route,
+        icon = Icons.Default.Speed,
+        itemCountBadge = "Benchmark Lab"
     )
 )
 

@@ -87,6 +87,7 @@ dependencies {
     implementation(libs.androidx.locationbutton.compose)
     implementation(libs.cronet.play.services)
     implementation("androidx.metrics:metrics-performance:1.0.0")
+    implementation("androidx.tracing:tracing-ktx:1.3.0")
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

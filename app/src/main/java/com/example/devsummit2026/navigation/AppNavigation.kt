@@ -25,6 +25,7 @@ import com.example.devsummit2026.ui.qwenagent.QwenAgentScreen
 import com.example.devsummit2026.ui.security.PlayIntegrityScreen
 import com.example.devsummit2026.ui.security.SecurityFeaturesScreen
 import com.example.devsummit2026.ui.security.SmsOtpComparisonScreen
+import com.example.devsummit2026.ui.tracing.TracingBenchmarkScreen
 
 @Composable
 fun AppNavigation(
@@ -36,7 +37,7 @@ fun AppNavigation(
         startDestination = Screen.FeatureList.route,
         modifier = modifier
     ) {
-        // Home: Simple Categories List (AI, Compose)
+        // Home: Simple Categories List (AI, Compose, Security, Tracing)
         composable(Screen.FeatureList.route) {
             FeatureListScreen(
                 onCategoryClick = { category ->
@@ -206,6 +207,15 @@ fun AppNavigation(
         // Subcategory: Cronet & QUIC Connection Migration Screen
         composable(Screen.CronetUpload.route) {
             CronetUploadScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // Performance & Coroutine Tracing Lab Screen
+        composable(Screen.TracingBenchmark.route) {
+            TracingBenchmarkScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }
