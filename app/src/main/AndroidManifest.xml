@@ -42,6 +42,9 @@
         <meta-data
             android:name="com.google.android.gms.tflite_dynamite"
             android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
 
         <activity
             android:name=".MainActivity"

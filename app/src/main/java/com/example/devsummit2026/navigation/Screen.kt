@@ -33,4 +33,7 @@ sealed class Screen(val route: String) {
 
     // Performance & Coroutine Tracing Lab
     data object TracingBenchmark : Screen("tracing_benchmark")
+
+    // Payments & Tokenization
+    data object GooglePayDemo : Screen("google_pay_demo")
 }

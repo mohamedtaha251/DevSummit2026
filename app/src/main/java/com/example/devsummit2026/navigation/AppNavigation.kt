@@ -20,6 +20,7 @@ import com.example.devsummit2026.ui.litert.LiteRtScreen
 import com.example.devsummit2026.ui.litert.MeetBackgroundScreen
 import com.example.devsummit2026.ui.location.OneTimeLocationScreen
 import com.example.devsummit2026.ui.mlkit.TextRecognitionScreen
+import com.example.devsummit2026.ui.pay.GooglePayDemoScreen
 import com.example.devsummit2026.ui.qwen.QwenChatScreen
 import com.example.devsummit2026.ui.qwenagent.QwenAgentScreen
 import com.example.devsummit2026.ui.security.PlayIntegrityScreen
@@ -216,6 +217,15 @@ fun AppNavigation(
         // Performance & Coroutine Tracing Lab Screen
         composable(Screen.TracingBenchmark.route) {
             TracingBenchmarkScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // Google Pay Checkout Demo Screen
+        composable(Screen.GooglePayDemo.route) {
+            GooglePayDemoScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

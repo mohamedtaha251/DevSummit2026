@@ -19,6 +19,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.CloudUpload
 import androidx.compose.material.icons.filled.NearMe
+import androidx.compose.material.icons.filled.Payment
 import androidx.compose.material.icons.filled.Security
 import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Sms
@@ -90,6 +91,14 @@ val defaultSecurityFeatureItems = listOf(
         description = "Seamless Wi-Fi to Cellular handover with QUIC connection migration during active streaming upload without socket resets.",
         route = Screen.CronetUpload.route,
         icon = Icons.Default.CloudUpload
+    ),
+    SecurityFeatureItem(
+        id = "google_pay_checkout",
+        title = "Google Pay Checkout",
+        badge = "Tokenized Pay",
+        description = "Test mode in-app checkout demonstrating secure payment tokenization without exposing sensitive card PAN.",
+        route = Screen.GooglePayDemo.route,
+        icon = Icons.Default.Payment
     )
 )
 
