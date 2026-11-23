@@ -22,6 +22,7 @@ playIntegrity = "1.4.0"
 locationbutton = "1.0.0-alpha01"
 cronet = "18.1.0"
 annotationKeep = "1.0.0-alpha01"
+profileinstaller = "1.4.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -56,6 +57,7 @@ play-integrity = { group = "com.google.android.play", name = "integrity", versio
 androidx-locationbutton-compose = { group = "androidx.core.locationbutton", name = "locationbutton-compose", version.ref = "locationbutton" }
 cronet-play-services = { group = "com.google.android.gms", name = "play-services-cronet", version.ref = "cronet" }
 androidx-annotation-keep = { group = "androidx.annotation.keep", name = "keep", version.ref = "annotationKeep" }
+androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "profileinstaller" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

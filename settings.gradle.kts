@@ -24,4 +24,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "DevSummit2026"
 include(":app")
- 
