@@ -21,6 +21,7 @@ playServicesAuthApiPhone = "18.1.0"
 playIntegrity = "1.4.0"
 locationbutton = "1.0.0-alpha01"
 cronet = "18.1.0"
+annotationKeep = "1.0.0-alpha01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -54,6 +55,7 @@ play-services-auth-api-phone = { group = "com.google.android.gms", name = "play-
 play-integrity = { group = "com.google.android.play", name = "integrity", version.ref = "playIntegrity" }
 androidx-locationbutton-compose = { group = "androidx.core.locationbutton", name = "locationbutton-compose", version.ref = "locationbutton" }
 cronet-play-services = { group = "com.google.android.gms", name = "play-services-cronet", version.ref = "cronet" }
+androidx-annotation-keep = { group = "androidx.annotation.keep", name = "keep", version.ref = "annotationKeep" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -61,3 +63,4 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics" }
+androidx-annotation-keep = { id = "androidx.annotation.keep", version.ref = "annotationKeep" }

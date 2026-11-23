@@ -3,8 +3,8 @@ package com.example.devsummit2026.firebase
 import android.content.Context
 import com.google.firebase.Firebase
 import com.google.firebase.app
+import com.google.firebase.appcheck.AppCheckProviderFactory
 import com.google.firebase.appcheck.appCheck
-import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
 import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 
 object FirebaseAppCheckManager {
@@ -23,9 +23,14 @@ object FirebaseAppCheckManager {
                 )
                 .apply()
 
-            Firebase.appCheck.installAppCheckProviderFactory(
-                DebugAppCheckProviderFactory.getInstance()
-            )
+            try {
+                val clazz = Class.forName("com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory")
+                val method = clazz.getMethod("getInstance")
+                val factory = method.invoke(null) as AppCheckProviderFactory
+                Firebase.appCheck.installAppCheckProviderFactory(factory)
+            } catch (e: Exception) {
+                // Debug factory not present on classpath
+            }
         } else {
             Firebase.appCheck.installAppCheckProviderFactory(
                 PlayIntegrityAppCheckProviderFactory.getInstance()

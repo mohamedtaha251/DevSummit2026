@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.google.services)
     alias(libs.plugins.ksp)
     alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.androidx.annotation.keep)
 }
 
 android {
@@ -30,10 +31,12 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = true
-                packageScope = setOf("androidx.**", "kotlin.**", "kotlinx.**")
-            }
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -86,6 +89,7 @@ dependencies {
     implementation("androidx.compose.material3:material3-a2ui:1.0.0-alpha02")
     implementation(libs.androidx.locationbutton.compose)
     implementation(libs.cronet.play.services)
+    implementation(libs.androidx.annotation.keep)
     implementation("androidx.metrics:metrics-performance:1.0.0")
     implementation("androidx.tracing:tracing-ktx:1.3.0")
     testImplementation(libs.junit)

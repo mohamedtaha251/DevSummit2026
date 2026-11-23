@@ -1,5 +1,6 @@
 package com.example.devsummit2026.appfunctions.model
 
+import androidx.annotation.keep.UnconditionallyKeep
 import androidx.appfunctions.AppFunctionSerializable
 
 /**
@@ -10,6 +11,7 @@ import androidx.appfunctions.AppFunctionSerializable
  * @property content The main body text of the note.
  * @property createdAt Timestamp in milliseconds when the note was created.
  */
+@UnconditionallyKeep
 @AppFunctionSerializable(isDescribedByKDoc = true)
 data class Note(
     val id: String,
