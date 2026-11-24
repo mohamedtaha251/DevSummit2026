@@ -34,6 +34,9 @@ sealed class Screen(val route: String) {
     // Performance & Coroutine Tracing Lab
     data object TracingBenchmark : Screen("tracing_benchmark")
 
+    // Crashlytics Memory Lab
+    data object CrashlyticsMemory : Screen("crashlytics_memory")
+
     // Payments & Tokenization
     data object GooglePayDemo : Screen("google_pay_demo")
 }

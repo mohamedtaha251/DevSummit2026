@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.devsummit2026.ui.adaptive.AdaptiveScreen
 import com.example.devsummit2026.ui.appfunctions.AppFunctionsScreen
+import com.example.devsummit2026.ui.crashlytics.CrashlyticsMemoryScreen
 import com.example.devsummit2026.ui.cronet.CronetUploadScreen
 import com.example.devsummit2026.ui.features.AiFeatureListScreen
 import com.example.devsummit2026.ui.features.ComposeFeatureListScreen
@@ -217,6 +218,15 @@ fun AppNavigation(
         // Performance & Coroutine Tracing Lab Screen
         composable(Screen.TracingBenchmark.route) {
             TracingBenchmarkScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // Crashlytics Memory Lab Screen
+        composable(Screen.CrashlyticsMemory.route) {
+            CrashlyticsMemoryScreen(
                 onBackClick = {
                     navController.popBackStack()
                 }

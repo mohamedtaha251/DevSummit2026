@@ -20,3 +20,9 @@ These guidelines apply to all AI assistants and agents working on this repositor
   2. **Compose** (Responsive List-to-Grid, MediaQuery & Adaptive layouts)
   3. **Security & Privacy** (Advanced Protection, Zero-Permission SMS OTP, One-Time Location)
 - **Standalone Feature Screens**: Each category navigates to a category list. Every individual feature/lab must have its own dedicated screen with a back button—never nest or bury one feature inside another.
+
+## 6. Android Developers YouTube Video Analysis
+- **Trigger**: Whenever the user pastes a YouTube link and the video is from the **Android Developers** channel (`@AndroidDevelopers`), automatically respond with these three sections:
+  1. **Speakers' LinkedIn Profiles**: List the LinkedIn profile URLs for all speakers/talkers in the video.
+  2. **New Points Introduced**: Summarize all new announcements, APIs, features, or concepts introduced in the video.
+  3. **Implementation Plan**: Provide a concrete plan on how to implement them in this project (`DevSummit2026`), respecting the 3-category educational hierarchy and minimalist UI rules above.

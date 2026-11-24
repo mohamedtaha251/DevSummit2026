@@ -8,6 +8,7 @@ import androidx.compose.ui.ComposeUiFlags
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.example.devsummit2026.firebase.FirebaseAppCheckManager
 import com.example.devsummit2026.navigation.AppNavigation
+import com.example.devsummit2026.ui.crashlytics.MemoryDiagnosticsHelper
 import com.example.devsummit2026.ui.theme.DevSummit2026Theme
 
 class MainActivity : ComponentActivity() {
@@ -16,6 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         ComposeUiFlags.isMediaQueryIntegrationEnabled = true
         FirebaseAppCheckManager.initialize(BuildConfig.DEBUG)
+        MemoryDiagnosticsHelper.reportPendingMemoryKill(this)
         enableEdgeToEdge()
         setContent {
             DevSummit2026Theme {

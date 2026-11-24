@@ -19,6 +19,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Devices
 import androidx.compose.material.icons.filled.Layers
+import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material.icons.filled.NearMe
 import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Speed
@@ -86,6 +87,15 @@ val defaultCategories = listOf(
         route = Screen.TracingBenchmark.route,
         icon = Icons.Default.Speed,
         itemCountBadge = "Benchmark Lab"
+    ),
+    CategoryItem(
+        id = "category_crashlytics_memory",
+        title = "Crashlytics Memory Lab",
+        subtitle = "OOM, Memory Limit & GWP-ASan / MTE",
+        description = "Trigger Managed OOM, Memory Limit Kill, and GWP-ASan / MTE native crashes for Firebase Crashlytics.",
+        route = Screen.CrashlyticsMemory.route,
+        icon = Icons.Default.Memory,
+        itemCountBadge = "3 Crashes"
     )
 )
 
